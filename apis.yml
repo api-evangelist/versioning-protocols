@@ -1,0 +1,15 @@
+name: Versioning Protocols
+description: Standards and methodologies for managing changes and updates to APIs,
+  software interfaces, and data formats while maintaining backward compatibility and
+  clear communication of breaking changes. It is widely used by developers to build,
+  maintain, and scale software applications efficiently.
+url: https://semver.org/
+tags:
+- API Design
+- Software Development
+- Version Control
+- Backward Compatibility
+created: '2025'
+modified: '2025'
+apis: []
+common: []

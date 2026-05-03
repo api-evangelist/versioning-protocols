@@ -1,0 +1,11 @@
+{
+  "version": "2.1.3",
+  "major": 2,
+  "minor": 1,
+  "patch": 3,
+  "preRelease": null,
+  "buildMetadata": null,
+  "isBreaking": false,
+  "isFeature": true,
+  "isBugFix": false
+}

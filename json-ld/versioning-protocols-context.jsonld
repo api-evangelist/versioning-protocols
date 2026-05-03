@@ -1,0 +1,102 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "versioning": "https://versioning-protocols.org/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "SemanticVersion": "versioning:SemanticVersion",
+    "CalendarVersion": "versioning:CalendarVersion",
+    "URIPathVersion": "versioning:URIPathVersion",
+    "version": {
+      "@id": "schema:version",
+      "@type": "xsd:string"
+    },
+    "major": {
+      "@id": "versioning:major",
+      "@type": "xsd:integer"
+    },
+    "minor": {
+      "@id": "versioning:minor",
+      "@type": "xsd:integer"
+    },
+    "patch": {
+      "@id": "versioning:patch",
+      "@type": "xsd:integer"
+    },
+    "preRelease": {
+      "@id": "versioning:preRelease",
+      "@type": "xsd:string"
+    },
+    "buildMetadata": {
+      "@id": "versioning:buildMetadata",
+      "@type": "xsd:string"
+    },
+    "isBreaking": {
+      "@id": "versioning:isBreaking",
+      "@type": "xsd:boolean"
+    },
+    "isFeature": {
+      "@id": "versioning:isFeature",
+      "@type": "xsd:boolean"
+    },
+    "isBugFix": {
+      "@id": "versioning:isBugFix",
+      "@type": "xsd:boolean"
+    },
+    "year": {
+      "@id": "versioning:year",
+      "@type": "xsd:integer"
+    },
+    "month": {
+      "@id": "versioning:month",
+      "@type": "xsd:integer"
+    },
+    "day": {
+      "@id": "versioning:day",
+      "@type": "xsd:integer"
+    },
+    "modifier": {
+      "@id": "versioning:modifier",
+      "@type": "xsd:string"
+    },
+    "format": {
+      "@id": "versioning:format",
+      "@type": "xsd:string"
+    },
+    "releaseDate": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:date"
+    },
+    "basePath": {
+      "@id": "versioning:basePath",
+      "@type": "xsd:string"
+    },
+    "versionPrefix": {
+      "@id": "versioning:versionPrefix",
+      "@type": "xsd:string"
+    },
+    "currentVersion": {
+      "@id": "versioning:currentVersion",
+      "@type": "xsd:integer"
+    },
+    "supportedVersions": {
+      "@id": "versioning:supportedVersions",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "deprecatedVersions": {
+      "@id": "versioning:deprecatedVersions",
+      "@container": "@set",
+      "@type": "xsd:integer"
+    },
+    "deprecated": {
+      "@id": "versioning:deprecated",
+      "@type": "xsd:boolean"
+    },
+    "sunsetDate": {
+      "@id": "versioning:sunsetDate",
+      "@type": "xsd:date"
+    }
+  }
+}

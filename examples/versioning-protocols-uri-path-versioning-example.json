@@ -1,0 +1,25 @@
+{
+  "basePath": "/api",
+  "versionPrefix": "v",
+  "currentVersion": 2,
+  "supportedVersions": [
+    1,
+    2
+  ],
+  "deprecatedVersions": [
+    1
+  ],
+  "paths": [
+    {
+      "version": 2,
+      "path": "/api/v2",
+      "deprecated": false
+    },
+    {
+      "version": 1,
+      "path": "/api/v1",
+      "deprecated": true,
+      "sunsetDate": "2027-01-01"
+    }
+  ]
+}

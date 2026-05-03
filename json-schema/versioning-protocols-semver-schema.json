@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/versioning-protocols/refs/heads/main/json-schema/versioning-protocols-semver-schema.json",
+  "title": "SemanticVersion",
+  "description": "Semantic Versioning 2.0.0 version string and components following the MAJOR.MINOR.PATCH format",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Full version string in MAJOR.MINOR.PATCH[-pre-release][+build] format",
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$",
+      "example": "2.1.3"
+    },
+    "major": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Major version number. Incremented for incompatible API changes.",
+      "example": 2
+    },
+    "minor": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Minor version number. Incremented for backward-compatible new functionality.",
+      "example": 1
+    },
+    "patch": {
+      "type": "integer",
+      "minimum": 0,
+      "description": "Patch version number. Incremented for backward-compatible bug fixes.",
+      "example": 3
+    },
+    "preRelease": {
+      "type": "string",
+      "description": "Pre-release identifier (e.g., alpha.1, beta.2, rc.1)",
+      "example": "beta.1"
+    },
+    "buildMetadata": {
+      "type": "string",
+      "description": "Build metadata appended with + (e.g., +20130313144700, +sha.5114f85)",
+      "example": "sha.5114f85"
+    },
+    "isBreaking": {
+      "type": "boolean",
+      "description": "Whether this version contains breaking changes (major version bump)",
+      "example": false
+    },
+    "isFeature": {
+      "type": "boolean",
+      "description": "Whether this version adds new backward-compatible features (minor version bump)",
+      "example": true
+    },
+    "isBugFix": {
+      "type": "boolean",
+      "description": "Whether this version is a backward-compatible bug fix only (patch version bump)",
+      "example": false
+    }
+  },
+  "required": ["version", "major", "minor", "patch"]
+}

@@ -1,0 +1,172 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: "Versioning Protocols"
+  description: "Unified vocabulary for API versioning standards, strategies, and best practices covering SemVer, CalVer, URI path versioning, header versioning, and deprecation management."
+  created: "2026-05-03"
+  modified: "2026-05-03"
+
+operational:
+  apis:
+    - namespace: semver
+      version: "2.0.0"
+      baseUrl: https://semver.org
+      status: active
+    - namespace: calver
+      version: "1.0"
+      baseUrl: https://calver.org
+      status: active
+
+  resources:
+    - name: version-strings
+      description: "Structured version identifiers (SemVer, CalVer)"
+    - name: version-policies
+      description: "Organizational versioning and deprecation policies"
+    - name: breaking-changes
+      description: "Breaking change definitions and detection"
+    - name: deprecation-notices
+      description: "Version deprecation and sunset notices"
+
+  actions:
+    - name: bump-major
+      pattern: write
+      description: "Increment major version for breaking changes"
+    - name: bump-minor
+      pattern: write
+      description: "Increment minor version for new backward-compatible features"
+    - name: bump-patch
+      pattern: write
+      description: "Increment patch version for bug fixes"
+    - name: deprecate-version
+      pattern: write
+      description: "Mark a version as deprecated with sunset date"
+    - name: detect-breaking-changes
+      pattern: read
+      description: "Compare two spec versions to identify breaking changes"
+    - name: validate-semver
+      pattern: read
+      description: "Validate a version string against SemVer specification"
+
+  schemas:
+    core:
+      - name: SemanticVersion
+        description: "SemVer 2.0.0 version with major, minor, patch components"
+      - name: CalendarVersion
+        description: "CalVer date-based version with year, month, day components"
+      - name: URIPathVersion
+        description: "URI path versioning configuration with supported and deprecated versions"
+
+  parameters:
+    identifiers:
+      - name: version
+        description: "Version string identifier"
+        type: string
+    filters:
+      - name: major
+        description: "Major version number filter"
+        type: integer
+      - name: deprecated
+        description: "Filter deprecated versions"
+        type: boolean
+      - name: sunsetDate
+        description: "Sunset/retirement date for deprecated versions"
+        type: string
+
+  enums:
+    version-types:
+      - SemVer
+      - CalVer
+      - URI Path
+      - Header Based
+      - Query Parameter
+    change-impact:
+      - BREAKING
+      - ADDITIVE
+      - BUG_FIX
+      - DEPRECATION
+    calver-formats:
+      - "YYYY.MM.DD"
+      - "YYYY-MM-DD"
+      - "YYYY.MM"
+      - "YYYY"
+    version-modifiers:
+      - alpha
+      - beta
+      - rc
+      - dev
+      - post
+      - stable
+
+  authentication:
+    schemes: []
+
+capability:
+  workflows:
+    - name: api-versioning-governance
+      description: "Evaluate and apply versioning strategies for an API program"
+      domains:
+        - API Governance
+        - Version Management
+        - Deprecation
+
+  personas:
+    - id: api-designer
+      name: API Designer
+      description: "API designers choosing versioning strategies for new APIs"
+      workflows:
+        - api-versioning-governance
+
+    - id: platform-engineer
+      name: Platform Engineer
+      description: "Engineers implementing version routing and deprecation in API gateways"
+      workflows:
+        - api-versioning-governance
+
+    - id: api-consumer
+      name: API Consumer
+      description: "Developers consuming versioned APIs who need to track deprecations"
+      workflows:
+        - api-versioning-governance
+
+  domains:
+    - name: API Governance
+      description: "Policies and practices for managing API versions across the organization"
+    - name: Version Management
+      description: "Technical implementation of versioning strategies"
+    - name: Deprecation
+      description: "Planning and executing API version retirement"
+
+  namespaces:
+    consumed:
+      - name: semver
+        baseUri: https://semver.org
+      - name: calver
+        baseUri: https://calver.org
+
+  binds: []
+
+crossReference:
+  - resource: version-strings
+    operations:
+      - validate-semver
+      - bump-major
+      - bump-minor
+      - bump-patch
+    personas:
+      - API Designer
+      - Platform Engineer
+
+  - resource: deprecation-notices
+    operations:
+      - deprecate-version
+    personas:
+      - API Designer
+      - Platform Engineer
+
+  - resource: breaking-changes
+    operations:
+      - detect-breaking-changes
+    personas:
+      - API Designer
+      - Platform Engineer
+      - API Consumer

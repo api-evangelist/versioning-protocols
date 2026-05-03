@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/versioning-protocols/refs/heads/main/json-schema/versioning-protocols-calver-schema.json",
+  "title": "CalendarVersion",
+  "description": "Calendar Versioning (CalVer) version string using date-based identifiers",
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "Full CalVer version string (e.g., 2026-05-03, 2026.05)",
+      "example": "2026-05-03"
+    },
+    "year": {
+      "type": "integer",
+      "minimum": 2000,
+      "description": "Full 4-digit year",
+      "example": 2026
+    },
+    "month": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 12,
+      "description": "Month number (1-12)",
+      "example": 5
+    },
+    "day": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 31,
+      "description": "Day of month (1-31)",
+      "example": 3
+    },
+    "modifier": {
+      "type": "string",
+      "description": "Optional modifier (e.g., dev, alpha, beta, rc)",
+      "example": "rc"
+    },
+    "format": {
+      "type": "string",
+      "enum": ["YYYY.MM.DD", "YYYY-MM-DD", "YYYY.MM", "YYYY"],
+      "description": "CalVer format used for this version",
+      "example": "YYYY-MM-DD"
+    },
+    "releaseDate": {
+      "type": "string",
+      "format": "date",
+      "description": "ISO 8601 release date",
+      "example": "2026-05-03"
+    }
+  },
+  "required": ["version", "year"]
+}

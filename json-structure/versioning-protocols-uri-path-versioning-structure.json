@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/versioning-protocols/refs/heads/main/json-structure/versioning-protocols-uri-path-versioning-structure.json",
+  "description": "URI path versioning configuration and metadata for a REST API",
+  "type": "object",
+  "properties": {
+    "basePath": {
+      "type": "string",
+      "description": "Base path without version prefix",
+      "example": "/api"
+    },
+    "versionPrefix": {
+      "type": "string",
+      "description": "Version prefix used in path (e.g., v, version)",
+      "example": "v"
+    },
+    "currentVersion": {
+      "type": "int32",
+      "minimum": 1,
+      "description": "Current major API version number",
+      "example": 2
+    },
+    "supportedVersions": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "List of currently supported major version numbers",
+      "example": [
+        1,
+        2
+      ]
+    },
+    "deprecatedVersions": {
+      "type": "array",
+      "items": {
+        "type": "int32"
+      },
+      "description": "List of deprecated major version numbers",
+      "example": [
+        1
+      ]
+    },
+    "paths": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "version": {
+            "type": "int32"
+          },
+          "path": {
+            "type": "string"
+          },
+          "deprecated": {
+            "type": "boolean"
+          },
+          "sunsetDate": {
+            "type": "date"
+          }
+        }
+      },
+      "description": "Version-specific path configurations",
+      "example": [
+        {
+          "version": 2,
+          "path": "/api/v2",
+          "deprecated": false
+        },
+        {
+          "version": 1,
+          "path": "/api/v1",
+          "deprecated": true,
+          "sunsetDate": "2027-01-01"
+        }
+      ]
+    }
+  },
+  "required": [
+    "currentVersion"
+  ],
+  "name": "URIPathVersion"
+}

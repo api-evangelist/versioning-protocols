@@ -118,6 +118,8 @@ apis:
         url: https://openapispec.com/docs/how/how-does-openapi-handle-api-versioning/
 
 common:
+  - type: DomainSecurity
+    url: security/versioning-protocols-domain-security.yml
   - type: Website
     url: https://semver.org/
   - type: Documentation

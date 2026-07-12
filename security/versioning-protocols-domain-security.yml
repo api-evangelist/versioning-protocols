@@ -1,0 +1,30 @@
+generated: '2026-07-11'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: semver.org
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Sep 17 03:59:51 2026 GMT
+  hsts: false
+- host: calver.org
+  https: true
+  tls_version: TLSv1.2
+  cert_expires: Sep 15 08:09:20 2026 GMT
+  hsts: false
+- host: www.askantech.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Aug 16 05:10:07 2026 GMT
+  hsts: false
+domains:
+- domain: semver.org
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false
+- domain: calver.org
+  dnssec: false
+  caa: []
+  spf: false
+  dmarc: false

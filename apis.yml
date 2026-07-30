@@ -1,4 +1,17 @@
 aid: versioning-protocols
+accessModel:
+  pricing: freemium
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Freemium
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/versioning-protocols.png
 name: Versioning Protocols
 description: >-
   Standards and methodologies for managing changes and updates to APIs, software

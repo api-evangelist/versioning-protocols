@@ -44,6 +44,7 @@ tags:
   - Semantic Versioning
   - API Lifecycle
   - Deprecation
+  - Developer Tools
 apis:
   - aid: versioning-protocols:semver
     name: Semantic Versioning (SemVer)
